@@ -64,7 +64,7 @@ class Particle:
         self.cost_current_solution = cost # cost current solution
         self.cost_pbest_solution = cost # cost pbest solution
 
-        # velocity particle = deretan dari 4 tuple
+        # velocity particle = deretan dari 3 tuple
         # contoh: (1, 2, "beta") artinya solution(1, 2), probability "beta"
         self.velocity = []
 
@@ -230,8 +230,8 @@ if __name__ == "__main__":
 
     iterations = int(input("Masukkan maximum iterasi: "))
     size_population = int(input("Masukkan size populasi: "))
-    alfa = float(input("Masukkan probabilitas swap operator for PBest: "))
-    beta = float(input("Masukkan probabilitas swap operator for GBest: "))
+    alfa = float(input("Masukkan probabilitas swap operator for (pbest - x(t-1)): "))
+    beta = float(input("Masukkan probabilitas swap operator for (gbest - x(t-1)): "))
 
     pso = PSO(graph, iterations=iterations, size_population=size_population, alfa=alfa, beta=beta, initial_vertice=initial_vertice)
     """
