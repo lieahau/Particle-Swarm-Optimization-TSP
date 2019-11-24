@@ -138,7 +138,7 @@ class PSO:
         print("Particles:\n")
         for particle in self.particles:
             print(
-                "pbest: %s \t|\t cost pbest: %d \t|\t current solution: %s \t|\t cost current solution: %d \n" \
+                "pbest: %s \t|\t cost pbest: %3d \t|\t current solution: %s \t|\t cost current solution: %3d \n" \
                 % (str(particle.getPBest()), particle.getCostPBest(), str(particle.getCurrentSolution()), particle.getCostCurrentSolution())
             )
 
