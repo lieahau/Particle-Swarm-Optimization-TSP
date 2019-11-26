@@ -117,10 +117,10 @@ class PSO:
         # initialized with a group of random particles (solutions)
         solutions = self.graph.getRandomPaths(self.size_population, initial_vertice)
 
-        # print("Initial solution each particle:")
+        print("\nInitial solution each particle:")
         # creates the particles and initialization of swap sequences in all the particles
         for solution in solutions:
-            # print("{solution} = {cost}".format(solution=solution, cost=graph.getCostPath(solution)))
+            print("{solution} = {cost}".format(solution=solution, cost=graph.getCostPath(solution)))
             # create a new particle
             particle = Particle(solution=solution, cost=graph.getCostPath(solution))
             # add the particle
@@ -134,10 +134,10 @@ class PSO:
 
     # print particles information
     def showParticles(self):
-        print("Particles:\n")
+        print("\nParticles:\n")
         for particle in self.particles:
             print(
-                "pbest: %s \t|\t cost pbest: %3d \t|\t current solution: %s \t|\t cost current solution: %3d \n" \
+                "pbest: %s \t|\t cost pbest: %3d \t|\t current solution: %s \t|\t cost current solution: %3d" \
                 % (str(particle.getPBest()), particle.getCostPBest(), str(particle.getCurrentSolution()), particle.getCostCurrentSolution())
             )
 
@@ -264,4 +264,4 @@ if __name__ == "__main__":
     pso.showParticles()
 
     # shows the global best particle
-    print('gbest: %s | cost: %d\n' % (pso.getGBest().getPBest(), pso.getGBest().getCostPBest()))
+    print('\ngbest: %s | cost: %d\n' % (pso.getGBest().getPBest(), pso.getGBest().getCostPBest()))
