@@ -117,15 +117,14 @@ class PSO:
         # initialized with a group of random particles (solutions)
         solutions = self.graph.getRandomPaths(self.size_population, initial_vertice)
 
+        # print("Initial solution each particle:")
         # creates the particles and initialization of swap sequences in all the particles
         for solution in solutions:
+            # print("{solution} = {cost}".format(solution=solution, cost=graph.getCostPath(solution)))
             # create a new particle
             particle = Particle(solution=solution, cost=graph.getCostPath(solution))
             # add the particle
             self.particles.append(particle)
-
-        # updates "size_population"
-        self.size_population = len(self.particles)
 
     def setGBest(self, new_gbest):
         self.gbest = new_gbest
@@ -172,7 +171,7 @@ class PSO:
 
                 # generates all swap operators to calculate (gbest - x(t-1))
                 for i in range(self.graph.amount_vertices):
-                    if solution_particle[1] != solution_gbest[i]:
+                    if solution_particle[i] != solution_gbest[i]:
                         # generates swap operator
                         swap_operator = (i, solution_gbest.index(solution_particle[i]), self.beta)
 
